@@ -1,7 +1,5 @@
 <?php
 
-//High Low game
-
 $guess_number = 0;
 
 echo "Okay, let's play \"Guess a Number!\"\n";
@@ -11,30 +9,26 @@ if ($argc == 3) {
 	$random_number = mt_rand($argv[1] , $argv[2]);
 
 	echo "Guess the random number between $argv[1] and $argv[2].\n";
-    
-	} else {
-		echo "Give me the range of numbers to use.\n";
 
-		fwrite(STDOUT, "Enter the low number: ");
+} else {
+	echo "Give me the range of numbers to use.\n";
 
-		$low_number = trim(fgets(STDIN));
+	fwrite(STDOUT, "Enter the low number: ");
 
-		fwrite(STDOUT, "Enter the high number: ");
+	$low_number = trim(fgets(STDIN));
 
-		$high_number = trim(fgets(STDIN));
+	fwrite(STDOUT, "Enter the high number: ");
 
-		$random_number = mt_rand($low_number, $high_number);
+	$high_number = trim(fgets(STDIN));
 
-		echo "Guess the random number between $low_number and $high_number.\n";
+	$random_number = mt_rand($low_number, $high_number);
+
+	echo "Guess the random number between $low_number and $high_number.\n";
 }
 
 do {
 
-	// user guess at number
-
 	fwrite(STDOUT, 'Guess a number: ');
-
-	// Get the input from user
 
 	$guess = trim(fgets(STDIN));
 
@@ -45,15 +39,15 @@ do {
 
 		if ($guess > $random_number) {
 
-    	echo "Lower...\n";
+			echo "Lower...\n";
 
 		} elseif ($guess < $random_number) {
-   
-    	echo "Higher...\n";
+
+			echo "Higher...\n";
 
 		} elseif ($guess = $random_number) {
 
-		echo "You got it!\n";
+			echo "You got it!\n";
 		}
 
 	}
@@ -61,10 +55,10 @@ do {
 	else {
 
 		echo "Seriously, enter a NUMBER.\n";
-	
+
 	}
 
 } while ($guess != $random_number);
 
-	echo "It took you $guess_number guesses.\n";
+echo "It took you $guess_number guesses.\n";
 
